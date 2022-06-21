@@ -1,3 +1,3 @@
 from config.settings.common import *
 
-print('■■■■■■■ prd')
+print('■■■■■■■ 本番環境')

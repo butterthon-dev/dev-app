@@ -1,3 +1,3 @@
 from config.settings.common import *
 
-print('■■■■■■■ dev')
+print('■■■■■■■ 開発環境')
