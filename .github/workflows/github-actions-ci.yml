@@ -44,7 +44,6 @@ jobs:
       - name: Build docker image and push to artifact registry
         run: |
           gcloud builds submit \
-            --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOGITORY_ID }}/${{ env.DOCKER_IMAGE_NAME }}:latest \
             --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOGITORY_ID }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
 
       - name: Repository Dispatch
