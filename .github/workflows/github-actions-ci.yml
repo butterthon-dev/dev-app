@@ -18,7 +18,7 @@ env:
 jobs:
   docker-image-build-and-push:
     if: github.event.pull_request.merged == true
-    name: Build and Push docker image
+    name: Build and Push docker image to Artifact Registry
     runs-on: ubuntu-latest
 
     steps:
