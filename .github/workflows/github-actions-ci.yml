@@ -9,7 +9,7 @@ on:
 
 env:
   PROJECT_ID: cloud-learn-dev
-  PROJECT_NUMBER: 28420699271
+  PROJECT_NUMBER: '28420699271'
   REGION: asia-northeast1
   REPOGITORY_ID: dev-app-img-repository
   DOCKER_IMAGE_NAME: sample-image
@@ -39,11 +39,8 @@ jobs:
 
       - name: Configure docker for artifact registry
         run: |
-          gcloud config list account --format "value(core.account)"
           gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 
-      # サービスアカウントに与える権限
-      # - サービスアカウントユーザー
       - name: Build docker image and push to artifact registry
         run: |
           gcloud builds submit \
