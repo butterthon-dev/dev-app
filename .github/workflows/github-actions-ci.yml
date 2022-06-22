@@ -39,6 +39,7 @@ jobs:
 
       - name: Configure docker for artifact registry
         run: |
+          gcloud config list account --format "value(core.account)"
           gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 
       # サービスアカウントに与える権限
