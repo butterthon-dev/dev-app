@@ -47,15 +47,10 @@ jobs:
             --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOGITORY_ID }}/${{ env.DOCKER_IMAGE_NAME }}:latest \
             --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOGITORY_ID }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
 
-  open-merge-request-to-k8s:
-    if: github.event.pull_request.merged == true
-    name: Open merge request to k8s
-    runs-on: ubuntu-latest
-    steps:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }} # パーソナルアクセストークンを取得して、このリポジトリのシークレットに追加
-          repository: butterthon-dev/dev-app
+          repository: butterthon-dev/dev-app-k8s
           event-type: update-yml
-          client-payload: '{"github_sha": "${{ github.sha }}", "ref": "#{{ github.ref_name }}"}'
+          client-payload: '{"github_sha": "${{ github.sha }}", "ref": "${{ github.ref_name }}"}'
